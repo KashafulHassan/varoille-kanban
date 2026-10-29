@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Varoille</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 class="logo">Varoille</h1>
+    <div id="nav">
+      <button id="btn-logout" class="ghost hidden">Log out</button>
+    </div>
+  </header>
+
+  <!-- Auth screen -->
+  <section id="auth-view" class="auth">
+    <div class="auth-card">
+      <h2 id="auth-title">Welcome back</h2>
+      <input id="auth-username" placeholder="Username" autocomplete="username" />
+      <input id="auth-password" type="password" placeholder="Password" autocomplete="current-password" />
+      <button id="auth-submit" class="primary">Log in</button>
+      <p id="auth-switch">No account? <a href="#" id="switch-link">Register</a></p>
+    </div>
+  </section>
+
+  <!-- Board list -->
+  <main id="boards-view" class="hidden">
+    <div class="boards-wrap">
+      <div class="board-create">
+        <input id="new-board-title" placeholder="New board title..." />
+        <button id="btn-create-board" class="primary">+ Create board</button>
+      </div>
+      <div id="boards-list" class="boards-list"></div>
+    </div>
+  </main>
+
+  <!-- Board view -->
+  <main id="board-view" class="hidden">
+    <div class="board-head">
+      <button id="btn-back" class="ghost">← Boards</button>
+      <h2 id="board-title"></h2>
+      <div class="member-add">
+        <select id="member-select"></select>
+        <button id="btn-add-member" class="primary small">Add member</button>
+      </div>
+    </div>
+    <div class="member-row"><span id="members-label"></span></div>
+    <div id="kanban" class="kanban"></div>
+  </main>
+
+  <!-- Task modal -->
+  <div id="task-modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="modal-title"></h3>
+        <button id="modal-close" class="ghost">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-left">
+          <label>Description<textarea id="task-desc" rows="4"></textarea></label>
+          <label>Assignee<select id="task-assignee"></select></label>
+          <button id="btn-delete-task" class="danger">Delete task</button>
+        </div>
+        <div class="modal-right">
+          <h4>Comments</h4>
+          <div id="comments-list"></div>
+          <div class="comment-form">
+            <input id="comment-input" placeholder="Write a comment..." />
+            <button id="btn-send-comment" class="primary small">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts"></div>
+  <script src="app.js"></script>
+</body>
+</html>
